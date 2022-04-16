@@ -2,12 +2,13 @@ import React from "react";
 
 const Buttons = (props) => {
   const handleIncrement = () => {
-    console.log("positive button was clicked");
     props.setCount(props.count + 1);
   };
 
   const handleDecrement = () => {
-    console.log("negative button was clicked");
+    if (props.count === 0) {
+      return;
+    }
     props.setCount(props.count - 1);
   };
 

@@ -8,7 +8,6 @@ import YoMommaLogo from "./Images/YoMommaLogo.png";
 import Countdown from "./Components/Countdown";
 
 let currentUpdate;
-
 const App = () => {
   // const [joke, setJoke] = useState([]);
   const [count, setCount] = useState(0);
@@ -17,23 +16,14 @@ const App = () => {
 
   currentUpdate = update;
 
-  const NEW_JOKE_TIMER = 5000; // time variable
+  const NEW_JOKE_TIMER = 5000;
 
   useEffect(() => {
     // get a new joke every 5 seconds
-    const interval = setInterval(() => {
+    setInterval(() => {
       setlastJokeDateTime(Date.now());
     }, NEW_JOKE_TIMER);
   }, []);
-
-  // const getRandomJoke = () => {
-  //   const randomInt = Math.floor(Math.random() * jokes.length);
-  //   const randomJoke = jokes[randomInt];
-  //   setJoke(randomJoke);
-
-  // const difference = Date.now() - lastJokeDateTime; // get the current time of first joke
-  //   setlastJokeDateTime(newDate);
-  // };
 
   const currentJoke = jokes[Math.floor(Math.random() * jokes.length)];
 
@@ -49,7 +39,10 @@ const App = () => {
       </div>
       <Buttons count={count} setCount={setCount} />
       <div className="nextJokeTimer">
-        <Countdown lastJokeDateTime={lastJokeDateTime} />
+        <Countdown
+          lastJokeDateTime={lastJokeDateTime}
+          setlastJokeDateTime={setlastJokeDateTime}
+        />
       </div>
     </>
   );

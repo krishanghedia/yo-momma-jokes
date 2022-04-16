@@ -19,7 +19,7 @@ const Countdown = (props) => {
   return (
     <>
       <p>
-        {Math.round((props.lastJokeDateTime + 5000 - Date.now()) / 1000)}
+        {Math.round((props.lastJokeDateTime - Date.now() + 5000) / 1000)}
         &nbsp;seconds until next joke
       </p>
     </>
